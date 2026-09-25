@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deutsch lernen in Bern</title>
+<meta name="description" content="Gratis und günstig Deutsch lernen in Bern: Kurse, Sprachcafés, DeutschBon, KulturLegi, kantonaler Kurs-Finder. Mit Adresse, Preis und Prüfdatum. DE/EN/UK/SK/FR, kein Tracking.">
+<style>
+:root{--bg:#10242e;--card:#17323f;--line:#24495a;--txt:#eef6f9;--mut:#a5c3cf;--acc:#ffd166;--ok:#7ee2a8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font:17px/1.5 -apple-system,system-ui,sans-serif}
+main{max-width:720px;margin:0 auto;padding:16px 16px 40px}
+h1{font-size:24px;margin:8px 0 2px}.sub{color:var(--mut);font-size:14px;margin-bottom:12px}
+.lang{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}.lang button{background:none;border:1px solid var(--line);color:var(--mut);border-radius:8px;padding:6px 10px;font-size:13px;cursor:pointer;min-height:36px}.lang button[aria-pressed="true"]{background:var(--acc);color:#321;border-color:var(--acc)}
+.first{background:var(--card);border:2px solid var(--acc);border-radius:14px;padding:14px;margin:12px 0}.first b{color:var(--acc)}.first a{color:var(--acc)}
+h2{font-size:17px;margin:20px 0 8px;color:var(--acc)}
+.o{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:8px 0}
+.o b{font-size:16px}.o .p{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;background:var(--ok);color:#062;font-weight:700;margin-left:6px}
+.o .d{font-size:14px;margin-top:4px}.o .m{font-size:13px;color:var(--mut);margin-top:6px}.o a{color:var(--acc)}
+.foot{color:var(--mut);font-size:13px;margin-top:26px;border-top:1px solid var(--line);padding-top:10px}.foot a{color:var(--acc)}
+</style>
+</head>
+<body>
+<main>
+<div class="lang" id="lang" role="group"></div>
+<h1 id="h"></h1><div class="sub" id="s"></div>
+<div class="first" id="first"></div>
+<h2 id="h1"></h2><div id="free"></div>
+<h2 id="h2"></h2><div id="cheap"></div>
+<h2 id="h3"></h2><div id="money"></div>
+<div class="foot" id="foot"></div>
+</main>
+<script>
+(function(){
+const V="25.9.2026";
+// Angebote: [name, preis-tag, beschreibung, adresse/zeit, quelle-url, quelle-name] (deutsch; Beschreibung wird nicht übersetzt, damit Adressen und Zeiten wörtlich bleiben)
+const FREE=[
+ ["Bern Integral Plus (Deutsch Zentral / Deutsch Morillon)","gratis","Freiwillige unterrichten Deutsch von Alphabetisierung bis B2, je zwei Doppellektionen pro Woche. Für Geflüchtete und Migrant:innen, die keinen bezahlten Kurs besuchen können; mindestens 5 Stunden Lernzeit pro Woche. Lehrmittel ca. CHF 60 pro Niveau (Ausnahmen für N-Ausweis, Nothilfe, Sans-Papiers).","Kapellenstrasse 24a, 3011 Bern und Morillonstrasse 77, 3007 Bern. Aufnahmegespräch und Einstufung: Montag 12.00 Uhr, Kapellenstrasse 24a. deutschkurse@bern-integral-plus.ch","https://bern-integral-plus.ch/deutschkurse/","bern-integral-plus.ch"],
+ ["denk:mal, Autonome Schule Bern","gratis","Niederschwellige Deutschkurse ohne Anmeldung, unverbindlich, täglich. Selbstorganisiert.","Angaben laut Kursverzeichnis kathbern; Ort und Zeiten vor dem ersten Besuch auf der Website prüfen.","https://www.bern.ch/themen/auslanderinnen-und-auslander/deutsch-lernen","bern.ch › Deutsch lernen (Verweis auf niederschwellige Angebote)"],
+];
+const CHEAP=[
+ ["isa Bern","günstig","Deutsch-, Alphabetisierungs- und Konversationskurse A1 bis B1, Lehrbuch und Material im Kurspreis inbegriffen, DeutschBon wird angenommen. Einstufung 30 Minuten gratis für Neue.","Speichergasse 29, 3011 Bern · isa@isabern.ch · 031 310 12 70. Preise und Zeiten im aktuellen Kursprogramm auf der Website.","https://isabern.ch/kurse-sprachnachweis/sprachfoerderung/","isabern.ch"],
+ ["Ref. Kirchgemeinde Paulus: Deutsch üben mit Kinderhütedienst","CHF 2","Wöchentlich, ohne Anmeldung, Einstieg jederzeit, Kinderbetreuung vorhanden.","Laut Verzeichnis: Freitag 9 bis 11 Uhr, CHF 2 pro Mal. Vor dem ersten Besuch bei der Kirchgemeinde bestätigen.","https://www.bern.ch/themen/auslanderinnen-und-auslander/deutsch-lernen","Kursverzeichnis kathbern, via bern.ch"],
+ ["Kantonaler Kurs-Finder","","Suchmaschine des Kantons für Deutschkurse im Migrationsbereich, laufend aktualisiert. Nicht alle niederschwelligen Kurse sind drin, aber die meisten subventionierten.","Online: www.be.ch/sprachkurse-migration","https://www.weiterbildung-kurse.apps.be.ch/sprachkurs","be.ch › Sprachkurse Migration"],
+];
+const MONEY=[
+ ["DeutschBon der Stadt Bern","CHF 400","600 Gutscheine à CHF 400 für Deutschkurse, einlösbar bei 13 Sprachschulen in Bern, Ausgabe ab 1. September 2026 (dazu 100 Gutscheine für Ostermundigen).","Fachstelle für Migrations- und Rassismusfragen, 031 321 72 00","https://www.bern.ch/themen/auslanderinnen-und-auslander/deutsch-lernen","bern.ch › Deutsch lernen"],
+ ["KulturLegi Kanton Bern","Rabatt","Vergünstigte Deutschkurse und vieles mehr für Menschen mit kleinem Budget.","Beantragen bei Caritas Bern","https://www.kulturlegi.ch/kanton-bern/ueber-uns/kulturlegi-kanton-bern/","kulturlegi.ch"],
+];
+const L={
+ de:{n:"Deutsch",h:"Deutsch lernen in Bern",s:"Gratis und günstig, mit Adresse, Preis und dem Datum, an dem wir die Angabe geprüft haben ("+V+"). Kurse ändern sich: vor dem ersten Besuch die Quelle öffnen.",first:"<b>Der erste Schritt:</b> Kurs-Finder des Kantons öffnen, Niveau und Quartier wählen. Wer sich keinen Kurs leisten kann, geht direkt zu Bern Integral Plus (gratis) oder holt den DeutschBon der Stadt.",h1:"Gratis",h2:"Günstig und Sprachcafés",h3:"Geld dafür",src:"Quelle",chk:"geprüft",foot:'Zusammengestellt aus bern.ch, be.ch, bern-integral-plus.ch, isabern.ch, kulturlegi.ch; Prüfdatum '+V+'. Angebote ändern sich, die verlinkte Seite gilt. Ergänzungen mit Quelle als Pull Request. Kein Tracking. <a href="https://github.com/richardcervenka111-create/deutsch-lernen-bern">GitHub</a> · MIT'},
+ en:{n:"English",h:"Learning German in Bern",s:"Free and cheap, with address, price and the date we checked it ("+V+"). Courses change: open the source before your first visit.",first:"<b>First step:</b> open the canton’s course finder, choose level and district. If you cannot afford a course, go straight to Bern Integral Plus (free) or get the city’s DeutschBon.",h1:"Free",h2:"Cheap and language cafés",h3:"Money for it",src:"Source",chk:"checked",foot:'Compiled from bern.ch, be.ch, bern-integral-plus.ch, isabern.ch, kulturlegi.ch; checked '+V+'. Offers change, the linked page prevails. Additions with source as pull request. No tracking. <a href="https://github.com/richardcervenka111-create/deutsch-lernen-bern">GitHub</a> · MIT'},
+ uk:{n:"Українська",h:"Вивчати німецьку в Берні",s:"Безкоштовно і дешево, з адресою, ціною та датою перевірки ("+V+"). Курси змінюються: перед першим візитом відкрийте джерело.",first:"<b>Перший крок:</b> відкрийте кантональний пошук курсів, оберіть рівень і район. Якщо курс не по кишені, йдіть одразу до Bern Integral Plus (безкоштовно) або отримайте міський DeutschBon.",h1:"Безкоштовно",h2:"Дешево та мовні кафе",h3:"Гроші на це",src:"Джерело",chk:"перевірено",foot:'Зібрано з bern.ch, be.ch, bern-integral-plus.ch, isabern.ch, kulturlegi.ch; перевірено '+V+'. Пропозиції змінюються, діє сторінка за посиланням. Без відстеження. <a href="https://github.com/richardcervenka111-create/deutsch-lernen-bern">GitHub</a> · MIT'},
+ sk:{n:"Slovensky",h:"Učiť sa nemčinu v Berne",s:"Zadarmo a lacno, s adresou, cenou a dátumom, keď sme údaj overili ("+V+"). Kurzy sa menia: pred prvou návštevou otvor zdroj.",first:"<b>Prvý krok:</b> otvor kantonálny vyhľadávač kurzov, vyber úroveň a štvrť. Kto si kurz nemôže dovoliť, ide rovno do Bern Integral Plus (zadarmo) alebo si vezme mestský DeutschBon.",h1:"Zadarmo",h2:"Lacno a jazykové kaviarne",h3:"Peniaze na to",src:"Zdroj",chk:"overené",foot:'Zostavené z bern.ch, be.ch, bern-integral-plus.ch, isabern.ch, kulturlegi.ch; overené '+V+'. Ponuky sa menia, platí odkazovaná stránka. Doplnenia so zdrojom ako pull request. Žiadne sledovanie. <a href="https://github.com/richardcervenka111-create/deutsch-lernen-bern">GitHub</a> · MIT'},
+ fr:{n:"Français",h:"Apprendre l’allemand à Berne",s:"Gratuit et bon marché, avec adresse, prix et date de vérification ("+V+"). Les cours changent : ouvrez la source avant la première visite.",first:"<b>Première étape :</b> ouvrir le moteur de recherche cantonal, choisir le niveau et le quartier. Si un cours est trop cher, aller directement à Bern Integral Plus (gratuit) ou demander le DeutschBon de la ville.",h1:"Gratuit",h2:"Bon marché et cafés linguistiques",h3:"De l’argent pour cela",src:"Source",chk:"vérifié",foot:'Compilé à partir de bern.ch, be.ch, bern-integral-plus.ch, isabern.ch, kulturlegi.ch ; vérifié le '+V+'. Les offres changent, la page liée fait foi. Sans traçage. <a href="https://github.com/richardcervenka111-create/deutsch-lernen-bern">GitHub</a> · MIT'}};
+let lang="de"; const $=id=>document.getElementById(id); const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function card(o){ const T=L[lang]; return `<div class="o"><b>${esc(o[0])}</b>${o[1]?`<span class="p">${esc(o[1])}</span>`:""}<div class="d">${esc(o[2])}</div><div class="m">${esc(o[3])}</div><div class="m">${T.src}: <a href="${o[4]}" rel="noopener">${esc(o[5])}</a> · ${T.chk} ${V}</div></div>`; }
+function render(){ const T=L[lang]; document.documentElement.lang=lang; document.title=T.h; $("h").textContent=T.h; $("s").textContent=T.s; $("first").innerHTML=T.first; $("h1").textContent=T.h1; $("h2").textContent=T.h2; $("h3").textContent=T.h3; $("foot").innerHTML=T.foot;
+  $("free").innerHTML=FREE.map(card).join(""); $("cheap").innerHTML=CHEAP.map(card).join(""); $("money").innerHTML=MONEY.map(card).join("");
+  const lg=$("lang"); lg.innerHTML=""; Object.keys(L).forEach(k=>{ const b=document.createElement("button"); b.textContent=L[k].n; b.setAttribute("aria-pressed",k===lang?"true":"false"); b.onclick=()=>{lang=k; render();}; lg.appendChild(b); }); }
+render();
+})();
+</script>
+</body>
+</html>
