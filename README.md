@@ -1,6 +1,6 @@
 # Deutsch lernen in Bern
 
-Gratis und günstig Deutsch lernen: Bern Integral Plus (gratis, zwei Standorte), denk:mal, isa Bern, Sprachtreff mit Kinderhütedienst, der kantonale Kurs-Finder, der DeutschBon der Stadt (600 × CHF 400 ab 1. 9. 2026) und die KulturLegi. Jede Zeile mit Adresse, Preis, Quelle und Prüfdatum. Fünf Sprachen (DE/EN/UK/SK/FR), kein Tracking.
+Gratis und günstig Deutsch lernen: Bern Integral Plus (gratis, zwei Standorte), denk:mal, isa Bern, Sprachtreff mit Kinderhütedienst, der kantonale Kurs-Finder, der DeutschBon der Stadt (600 × CHF 400 ab 1. 9. 2026) und die KulturLegi. Jede Zeile mit Adresse, Preis, Quelle und Prüfdatum. Vier Sprachen (DE/EN/UK/FR), kein Tracking.
 
 Live: **https://richardcervenka111-create.github.io/deutsch-lernen-bern/**
 
