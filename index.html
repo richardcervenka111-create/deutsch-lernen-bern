@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Deutsch lernen in Bern</title>
-<meta name="description" content="Gratis und günstig Deutsch lernen in Bern: Kurse, Sprachcafés, DeutschBon, KulturLegi, kantonaler Kurs-Finder. Mit Adresse, Preis und Prüfdatum. DE/EN/UK/SK/FR, kein Tracking.">
+<meta name="description" content="Gratis und günstig Deutsch lernen in Bern: Kurse, Sprachcafés, DeutschBon, KulturLegi, kantonaler Kurs-Finder. Mit Adresse, Preis und Prüfdatum. DE/EN/UK/FR, kein Tracking.">
 
 <meta name="theme-color" content="#f5f4f9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#130f1a" media="(prefers-color-scheme: dark)">
@@ -212,7 +212,7 @@ let lang="de"; const $=id=>document.getElementById(id); const esc=s=>String(s).r
 function card(o){ const T=L[lang]; return `<div class="o"><b>${esc(o[0])}</b>${o[1]?`<span class="p">${esc(o[1])}</span>`:""}<div class="d">${esc(o[2])}</div><div class="m">${esc(o[3])}</div><div class="m">${T.src}: <a href="${o[4]}" rel="noopener">${esc(o[5])}</a> · ${T.chk} ${V}</div></div>`; }
 function render(){ const T=L[lang]; document.documentElement.lang=lang; document.title=T.h; $("h").textContent=T.h; $("s").textContent=T.s; $("first").innerHTML=T.first; $("h1").textContent=T.h1; $("h2").textContent=T.h2; $("h3").textContent=T.h3; $("foot").innerHTML=T.foot;
   $("free").innerHTML=FREE.map(card).join(""); $("cheap").innerHTML=CHEAP.map(card).join(""); $("money").innerHTML=MONEY.map(card).join("");
-  const lg=$("lang"); lg.innerHTML=""; Object.keys(L).forEach(k=>{ const b=document.createElement("button"); b.textContent=L[k].n; b.setAttribute("aria-pressed",k===lang?"true":"false"); b.onclick=()=>{lang=k; render();}; lg.appendChild(b); }); K.stagger($("free"));K.stagger($("cheap"));K.stagger($("money")); }
+  const lg=$("lang"); lg.innerHTML=""; Object.keys(L).filter(k=>k!=="sk").forEach(k=>{ const b=document.createElement("button"); b.textContent=L[k].n; b.setAttribute("aria-pressed",k===lang?"true":"false"); b.onclick=()=>{lang=k; render();}; lg.appendChild(b); }); K.stagger($("free"));K.stagger($("cheap"));K.stagger($("money")); }
 render();
 })();
 </script>
